@@ -8,4 +8,4 @@ Installation
   
   Start the development server with npm start
 
-  then visit http://localhost:8090
+  then visit  http://localhost:8090/
