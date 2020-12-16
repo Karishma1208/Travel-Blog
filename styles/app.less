@@ -1,0 +1,178 @@
+@import (reference) "./mixins.less";
+@import (reference) "./responsive.less";
+
+body {
+  margin: 0;
+  font-family: 'HPSimplified-Light';
+}
+
+div {
+  box-sizing: border-box;
+}
+
+#container {
+  min-width: 320px;
+
+  .fake-container, .app-content {
+    width: 100%;
+    height: auto;
+  }
+
+  .day-background-container {
+    background-image: url("../assets/imgs/bg.jpg");
+    background-size: cover;
+    background-position: center;
+    opacity: 0.4;
+    position:fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 0;
+  }
+
+  .day-container {
+    height: 500px;
+    width: 100%;
+    padding-top: 50px;
+    position: relative;
+
+    .card-container {
+      .display-flex();
+      .flex-direction(column);
+      width: 90%;
+      height: 90%;
+      left: 5%;
+      position: relative;
+      top: 5%;
+      z-index: 5;
+
+      @media @tablet {
+        .flex-direction(initial);
+      }
+    }
+  }
+
+  .photo-container {
+    .display-flex();
+    .justify-content(flex-end);
+    width: 100%;
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+
+    @media @tablet {
+      width: 60%;
+      height: 100%;
+      flex: 1 0 1px;
+    }
+  }
+
+  .text-container {
+    .display-flex();
+    .flex-direction(column);
+    .justify-content(center);
+    width: 100%;
+    height: 320px;
+    position: absolute;
+    background: white;
+    top: 213px;
+
+    &::before {
+      background: #fff;
+      left: 40px;
+      top: -80px;
+      content: "";
+      height: 24px;
+      position: absolute;
+      -webkit-transform: rotate(45deg);
+      -moz-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      -o-transform: rotate(45deg);
+      width: 24px;
+      margin-top: 72px;
+      z-index: 5;
+    }
+
+    @media @tablet {
+      top: 0;
+      position: relative;
+      color: black;
+      width: 40%;
+      height: 100%;
+      max-width: 400px;
+      min-width: 200px;
+
+      &::before {
+        left: -10px;
+        top: 0;
+      }
+
+      &.arrow-right::before {
+        left: 96%;
+      }
+    }
+
+    .title {
+      font-size: 50px;
+      font-weight: 900;
+      text-align: center;
+      margin: 5%;
+      padding-bottom: 20px;
+      border-bottom: 1px solid;
+      color: rgb(218, 42, 71);
+      text-transform: uppercase;
+
+      @media @tablet {
+        position: relative;
+        top: 0;
+        width: auto;
+      }
+    }
+
+    .description {
+      box-sizing: border-box;
+      text-align: justify;
+      padding: 10px 20px;
+      line-height: 1.5em;
+
+      @media @tablet {
+        position: relative;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+      }
+    }
+
+    .itinerary {
+      position: absolute;
+      bottom: 5px;
+      right: 5px;
+      color: rgb(42, 218, 80);
+    }
+  }
+}
+
+@font-face {
+  font-family: 'HPSimplified-Light';
+  src: url('../assets/fonts/hpsimplified-light-eot.eot');
+  src: url("../assets/fonts/hpsimplified-light-eot.eot#iefix") format("embedded-opentype"), url("../assets/fonts/hpsimplified-light-woff.woff") format("woff"), url("../assets/fonts/hpsimplified-light-ttf.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'HPSimplified-Bold';
+  src: url('../assets/fonts/hpsimplified-bold-eot.eot');
+  src: url("../assets/fonts/hpsimplified-bold-eot.eot#iefix") format("embedded-opentype"), url("../assets/fonts/hpsimplified-bold-woff.woff") format("woff"), url("../assets/fonts/hpsimplified-bold-ttf.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'HPSimplified-Italic';
+  src: url('../assets/fonts/hpsimplified-italic-eot.eot');
+  src: url("../assets/fonts/hpsimplified-italic-eot.eot#iefix") format("embedded-opentype"), url("../assets/fonts/hpsimplified-italic-woff.woff") format("woff"), url("../assets/fonts/hpsimplified-italic-ttf.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}

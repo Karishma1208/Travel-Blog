@@ -1,0 +1,96 @@
+@import (reference) "./responsive.less";
+
+.image-gallery {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  &:hover {
+    .image-gallery-left-nav {
+      left: 10px;
+      opacity: 1;
+      @media @tablet {
+        left: 30px;
+      }
+    }
+    .image-gallery-right-nav {
+      right: 10px;
+      opacity: 1;
+      @media @tablet {
+        right: 30px;
+      }
+    }
+  }
+
+  .image-gallery-left-nav, .image-gallery-right-nav {
+    cursor: pointer;
+    position: absolute;
+    transition: all .32s ease-out;
+    z-index: 4;
+    top: 48%;
+    background-size: 38px 38px;
+    width: 38px;
+    height: 48px;
+    background-color: white;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0;
+
+    @media @tablet {
+      background-size: 48px 48px;
+      width: 48px;
+      height: 68px;
+    }
+  }
+
+  .image-gallery-left-nav {
+    left: -100px;
+    background-image: url("../assets/imgs/image-prev.jpg");
+  }
+
+  .image-gallery-right-nav {
+    right: -100px;
+    background-image: url("../assets/imgs/image-next.jpg");
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .index {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    color: white;
+    background: rgba(0, 0, 0, 0.685);
+    padding: 3px 5px;
+    text-align: center;
+    z-index: 5;
+  }
+
+  .swipe {
+    overflow: hidden;
+    visibility: hidden;
+    position: relative;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+  }
+  .swipe-wrap {
+    overflow: hidden;
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+  .swipe-wrap > div {
+    float:left;
+    width:100%;
+    position: relative;
+  }
+}

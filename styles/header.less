@@ -1,0 +1,55 @@
+@import (reference) "./mixins.less";
+@import (reference) "./responsive.less";
+
+.header-container {
+  .align-items(center);
+  .display-flex();
+  .justify-content(center);
+  .transition(200ms linear);
+
+  position: fixed;
+  height: 45px;
+  width: 100%;
+  background-color: transparent;
+  z-index: 500;
+  color: white;
+  opacity: 0;
+
+  &.visible {
+    background-color: rgba(199, 34, 83, 0.986);
+    opacity: 1;
+  }
+
+  .scroll-to-day {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    margin: 10px;
+    font-size: 14px;
+    display: none;
+    cursor: pointer;
+
+    @media @tablet {
+      display: inline-block;
+      position: relative;
+
+      &.active::before {
+        content: '';
+        position: absolute;
+        background: white;
+        width: 100%;
+        height: 2px;
+        bottom: -5px;
+      }
+    }
+  }
+  .title {
+    cursor: pointer;
+    display: inline-block;
+    padding: 13px;
+
+    @media @tablet {
+      display: none;
+    }
+  }
+}
+
